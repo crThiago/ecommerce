@@ -3,7 +3,7 @@
     "authors": [
         {
             "name": "Thiago Costa",
-            "email": ""
+            "email": "thiago_8777@hotmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }
 }
