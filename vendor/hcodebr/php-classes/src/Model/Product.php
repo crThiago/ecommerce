@@ -14,6 +14,17 @@ class Product extends model
         return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
     }
 
+    public static function checkList($list)
+    {
+        foreach ($list as &$row) {
+            $p = new Product();
+            $p->setData($row);
+            $row = $p->getValues();
+        }
+        
+        return $list;
+    }
+
     public function save()
     {
         $sql = new Sql();
@@ -70,6 +81,7 @@ class Product extends model
 
     public function getValues()
     {
+        
         $this->checkPhoto();
 
         $values = parent::getValues();
@@ -92,7 +104,7 @@ class Product extends model
                 $image = imagecreatefromgif($file['tmp_name']);
             break;
             case 'png':
-                $image = imagecreatefromgpng($file['tmp_name']);
+                $image = imagecreatefrompng($file['tmp_name']);
             break;
         }
 

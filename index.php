@@ -6,6 +6,7 @@ use \Slim\Slim;
 
 $app = new Slim();
 
+require_once('functions.php');
 require_once('routers/site.php');
 require_once('routers/admin.php');
 require_once('routers/admin-users.php');
