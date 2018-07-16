@@ -78,7 +78,6 @@ class Category extends model
             ));
         } else {
             return $sql->select("
-            
                 SELECT * FROM tb_products WHERE idproduct NOT IN(
                     SELECT a.idproduct
                     FROM tb_products a
