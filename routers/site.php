@@ -3,6 +3,7 @@
 use \Hcode\Page;
 use \Hcode\Model\Product;
 use \Hcode\Model\Category;
+use \Hcode\Model\Cart;
 
 $app->get('/', function() {
     
@@ -47,9 +48,17 @@ $app->get('/products/:desurl', function($desurl) {
     $product->getFromUrl($desurl);
 
     $page = new Page();
-    
+
     $page->setTpl("product-detail", array(
         'product' => $product->getValues(),
         'category' => $product->getCategory()
     ));
+});
+
+$app->get('/cart', function() {
+    $cart = Cart::getFromSession();
+    
+    $page = new Page();
+
+    $page->setTpl("cart");
 });
