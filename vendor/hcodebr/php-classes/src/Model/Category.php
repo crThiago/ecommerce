@@ -101,9 +101,11 @@ class Category extends model
             INNER JOIN tb_productscategories b ON a.idproduct = b.idproduct
             INNER JOIN tb_categories c ON c.idcategory = b.idcategory
             WHERE c.idcategory = :idcategory
-            LIMIT $start, $itemsPerPage;
+            LIMIT :start, :itemsperpage;
             ", array(
-                ":idcategory"=>$this->getidcategory()
+                ":idcategory"=>$this->getidcategory(),
+                ":start"=>$start,
+                ":itemsperpage"=>$itemsPerPage,
             )
         );
 
